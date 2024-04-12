@@ -1,0 +1,22 @@
+{
+    "overview": "You are coding a hello world app with rambda javascript library and express.js",
+    "explain": [
+        {
+            "folder": "./src",
+            "explanation": "contains the source code of the app"
+        }
+    ],
+    "commands": [
+        {
+            "name": "example",
+            "args": ["name"],
+            "templates": [{
+                "template": "{{name}}-route.ts",
+                "outFile": "./src/{{name}}-router.ts"
+            }],
+            "instructions": ["write a very short poem in the output of the route"]
+        }
+    ],
+    "extensions": [".ts"],
+    "includes": ["./src"]
+}
