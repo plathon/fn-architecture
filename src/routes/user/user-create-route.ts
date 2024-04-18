@@ -1,16 +1,16 @@
 import { Response } from 'express'
 import { pipe } from 'ramda'
 import { TypedRequestBody } from 'zod-express-middleware'
-import { indexRouteRequestSchema } from '@/schemas/routes/index-route-schema'
+import { userCreateSchema } from '@/schemas/routes/user-route-schema'
 
 import { isLeft } from '@/core/common/either'
 import { createUser } from '@/core/users/create-user'
 import { validateUser } from '@/core/users/validate-user'
 
-import { ok, badRequest } from '@/helpers/http-helper'
+import { created, badRequest } from '@/helpers/http-helper'
 
-export const indexRoute = async (
-  request: TypedRequestBody<typeof indexRouteRequestSchema.body>,
+export const userCreateRoute = async (
+  request: TypedRequestBody<typeof userCreateSchema.body>,
   response: Response,
 ): Promise<void> => {
   const { body } = request
@@ -21,6 +21,6 @@ export const indexRoute = async (
     response.status(result.statusCode).json(result.body)
     return
   }
-  const user = ok(userOrError.right)
+  const user = created(userOrError.right)
   response.status(user.statusCode).json(user.body)
 }

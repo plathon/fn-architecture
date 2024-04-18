@@ -1,22 +1,36 @@
 {
-    "overview": "You are coding a hello world app with rambda javascript library and express.js",
-    "explain": [
+  "overview": "You are coding a CRUD app with nodejs and express using a functional approach with ramda",
+  "explain": [
+    {
+      "folder": "./src/core",
+      "explanation": "the core directory with the domain layer of the app, should contain only pure functions"
+    },
+    {
+      "folder": "./src/schemas/routes",
+      "explanation": "the zod schema validation to routes"
+    },
+    {
+      "folder": "./src/routes",
+      "explanation": "the routes of the app can be called controller"
+    },
+    {
+      "folder": "./src/helper",
+      "explanation": "helper functions directories"
+    }
+  ],
+  "commands": [
+    {
+      "name": "crud",
+      "args": ["name"],
+      "templates": [
         {
-            "folder": "./src",
-            "explanation": "contains the source code of the app"
+          "template": "{{name}}-route.ts",
+          "outFile": "./src/{{name}}-router.ts"
         }
-    ],
-    "commands": [
-        {
-            "name": "example",
-            "args": ["name"],
-            "templates": [{
-                "template": "{{name}}-route.ts",
-                "outFile": "./src/{{name}}-router.ts"
-            }],
-            "instructions": ["write a very short poem in the output of the route"]
-        }
-    ],
-    "extensions": [".ts"],
-    "includes": ["./src"]
+      ],
+      "instructions": ["write a very short poem in the output of the route"]
+    }
+  ],
+  "extensions": [".ts"],
+  "includes": ["./src"]
 }

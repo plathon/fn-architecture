@@ -11,6 +11,11 @@ export const ok = <T>(data: T) => ({
   body: data,
 })
 
+export const created = <T>(data: T) => ({
+  statusCode: StatusCode.Created,
+  body: data,
+})
+
 export const internalServerError = (
   description = Messages.CouldNotProcessRequest,
 ) => ({
